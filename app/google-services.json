@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "806147511489",
+    "project_id": "biird-c370e",
+    "storage_bucket": "biird-c370e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:806147511489:android:6be861b41abc6a4f75b040",
+        "android_client_info": {
+          "package_name": "com.google.app.biird"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "806147511489-517t98pi2j45566vns0o66p9ninbc6ls.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZ8VD-WrJsk86hK4CucQxf6IuV-9umgp4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "806147511489-517t98pi2j45566vns0o66p9ninbc6ls.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
