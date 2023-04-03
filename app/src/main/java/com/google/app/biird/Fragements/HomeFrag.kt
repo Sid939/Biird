@@ -1,6 +1,7 @@
 package com.google.app.biird.Fragements
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,14 @@ import com.google.app.biird.Adapters.StoryAdapter
 import com.google.app.biird.Models.PostModel
 import com.google.app.biird.Models.StoryModel
 import com.google.app.biird.R
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
+
 class HomeFrag : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,12 +50,18 @@ class HomeFrag : Fragment() {
         post.add(PostModel(R.drawable.post,"Helooo Worlffvshfgvsekt nwiigejfg isjg  ge gwopgk ojw  feogjop  "))
         post.add(PostModel(R.drawable.post,"Helooo Worlffvshfgvsekt nwiigejfg isjg  ge gwopgk ojw  feogjop  "))
         post.add(PostModel(R.drawable.post,"Helooo Worlffvshfgvsekt nwiigejfg isjg  ge gwopgk ojw  feogjop  "))
-       post.add(PostModel(R.drawable.post,"Helooo Worlffvshfgvsekt nwiigejfg isjg  ge gwopgk ojw  feogjop  "))
         post.add(PostModel(R.drawable.post,"Helooo Worlffvshfgvsekt nwiigejfg isjg  ge gwopgk ojw  feogjop  "))
         post.add(PostModel(R.drawable.post,"Helooo Worlffvshfgvsekt nwiigejfg isjg  ge gwopgk ojw  feogjop  "))
         post.add(PostModel(R.drawable.post,"Helooo Worlffvshfgvsekt nwiigejfg isjg  ge gwopgk ojw  feogjop  "))
         post.add(PostModel(R.drawable.post,"Helooo Worlffvshfgvsekt nwiigejfg isjg  ge gwopgk ojw  feogjop  "))
         post.add(PostModel(R.drawable.post,"Helooo Worlffvshfgvsekt nwiigejfg isjg  ge gwopgk ojw  feogjop  "))
+        post.add(PostModel(R.drawable.post,"Helooo Worlffvshfgvsekt nwiigejfg isjg  ge gwopgk ojw  feogjop  "))
+        post.add(PostModel(R.drawable.post,"Helooo Worlffvshfgvsekt nwiigejfg isjg  ge gwopgk ojw  feogjop  "))
+        post.add(PostModel(R.drawable.post,"Helooo Worlffvshfgvsekt nwiigejfg isjg  ge gwopgk ojw  feogjop  "))
+        post.add(PostModel(R.drawable.story," HelloWorld "))
+
+
+
 
         val rec=view.findViewById<RecyclerView>(R.id.StoryRv)
         rec.layoutManager=LinearLayoutManager(view.context,LinearLayoutManager.HORIZONTAL,false)
