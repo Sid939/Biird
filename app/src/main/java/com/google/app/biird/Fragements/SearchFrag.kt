@@ -35,8 +35,10 @@ class SearchFrag : Fragment() {
             var users = StoryModel(R.drawable.story, txt?.text.toString())
             if(txt?.text.toString().isNullOrBlank()){
                 Toast.makeText(context,"ERROR",Toast.LENGTH_SHORT).show()
-            }else database.reference.child("Stories").child(cur)
-                .child(System.currentTimeMillis().toString()).setValue(users)
+            }else {
+                database.reference.child("Stories").child(cur).child(System.currentTimeMillis().toString()).setValue(users)
+                Toast.makeText(context, "Post added Successfully", Toast.LENGTH_SHORT).show()
+            }
         }
         return view
     }
