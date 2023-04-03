@@ -1,5 +1,7 @@
 package com.google.app.biird.Fragements
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -7,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.HORIZONTAL
@@ -35,6 +38,21 @@ class HomeFrag : Fragment() {
         val post:ArrayList<PostModel>
         post=ArrayList()
         list= ArrayList()
+
+        if (ContextCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
+            // Permission has already been granted, so you can access the gallery
+        } else {
+            // Permission has not been granted, so you need to request it
+            requestPermissions(
+                arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
+                100
+            )
+        }
+
         list.add(StoryModel(R.drawable.story,"helloworld"))
         list.add(StoryModel(R.drawable.story,"helloworld"))
         list.add(StoryModel(R.drawable.story,"helloworld"))
@@ -71,5 +89,25 @@ class HomeFrag : Fragment() {
         pos.adapter=PostAdapter(view.context,post)
         pos.layoutManager=LinearLayoutManager(view.context)
         return view
+    }
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        if (requestCode == 100) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission has been granted, so you can access the gallery
+            } else {
+                // Permission has not been granted, so inform the user
+                Toast.makeText(
+                    requireContext(),
+                    "You need to grant permission to access the gallery",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        } else {
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        }
     }
 }
